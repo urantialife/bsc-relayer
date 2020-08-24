@@ -189,6 +189,8 @@ func (executor *BSCExecutor) GetPackage(channelID relayercommon.CrossChainChanne
 
 func (executor *BSCExecutor) RelayCrossChainPackage(channelID relayercommon.CrossChainChannelID, sequence, height uint64) (common.Hash, error) {
 	msgBytes, proofBytes, err := executor.GetPackage(channelID, sequence, height)
+	relayercommon.Logger.Infof("step 7 time %vvi 	", time.Now())
+
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -197,6 +199,7 @@ func (executor *BSCExecutor) RelayCrossChainPackage(channelID relayercommon.Cros
 	if err != nil {
 		return common.Hash{}, err
 	}
+	relayercommon.Logger.Infof("step 8 time %vvi 	", time.Now())
 
 	relayercommon.Logger.Infof("channelID: %d, sequence: %d, txHash: %s", channelID, sequence, tx.String())
 	return tx, nil
@@ -221,7 +224,7 @@ func (executor *BSCExecutor) BatchRelayCrossChainPackages(channelID relayercommo
 		relayercommon.Logger.Infof("channelID: %d, sequence: %d, txHash: %s", channelID, seq, tx.String())
 		txList = append(txList, tx)
 
-		time.Sleep(500 * time.Millisecond)
+		time.Sleep(10 * time.Millisecond)
 	}
 	return txList, nil
 }
