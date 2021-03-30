@@ -187,6 +187,7 @@ func (executor *BBCExecutor) MonitorCrossChainPackage(height int64, preValidator
 func (executor *BBCExecutor) MonitorValidatorSetChange(height int64, preValidatorsHash cmn.HexBytes) (bool, cmn.HexBytes, error) {
 	validatorSetChanged := false
 
+	common.Logger.Infof("Try to get block %d", height)
 	block, err := executor.GetClient().Block(&height)
 	if err != nil {
 		return false, nil, err
@@ -293,6 +294,7 @@ func (executor *BBCExecutor) GetNextSequence(channelID common.CrossChainChannelI
 	path := fmt.Sprintf("/store/%s/%s", sequenceStoreName, "key")
 	key := buildChannelSequenceKey(executor.destChainID, channelID)
 
+	common.Logger.Infof("Try to query channel %d sequence", channelID)
 	response, err := executor.GetClient().ABCIQueryWithOptions(path, key, opts)
 	if err != nil {
 		return 0, err

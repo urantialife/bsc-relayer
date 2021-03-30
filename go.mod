@@ -7,7 +7,7 @@ require (
 	github.com/aristanetworks/goarista v0.0.0-20200429182514-19402535e24e // indirect
 	github.com/aws/aws-sdk-go v1.27.0
 	github.com/binance-chain/bsc-double-sign-sdk v1.0.0-alpha.0
-	github.com/binance-chain/go-sdk v1.2.2-0.20200520064040-fc067ad70353
+	github.com/binance-chain/go-sdk v1.2.6
 	github.com/cespare/cp v1.1.1 // indirect
 	github.com/deckarep/golang-set v1.7.1 // indirect
 	github.com/edsrzf/mmap-go v1.0.0 // indirect
